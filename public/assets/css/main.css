@@ -1,0 +1,22 @@
+
+.img-thumbnail {
+  max-width: 75%;
+}
+
+#inputDepartment {
+  color: black;
+}
+
+#msg1 {
+  color: whitesmoke ;
+  margin: 10px;
+  padding: 20px;
+}
+#msg2 {
+  color: whitesmoke ;
+  padding: 5 0 0 0;
+}
+#msg3 {
+  color: whitesmoke ;
+  padding: 5 0 0 0;
+}

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Employees</title>
+
+    <!-- Firebase -->
+<script src="/__/firebase/8.2.1/firebase-app.js"></script>
+<script src="/__/firebase/8.2.1/firebase-analytics.js"></script>
+<script src="/__/firebase/8.2.1/firebase-database.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>    
+    <!-- Fonts and icons     -->
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons"/>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css"/>
+
+    <!-- Material Dashboard CSS -->
+<link href="./assets/css/material-dashboard.css" rel="stylesheet" />
+<link href="./assets/js/material-dashboard.min.js" />
+
+<script src="assets/js/scripts/abi.js"></script>
+<script src="assets/js/scripts/web3.min.js"></script>
+<script defer src="app.js"></script>
+
+
+
+</head>
+<body class="dark-edition">
+    <div class="wrapper ">
+      <div class="sidebar" data-color="purple" data-background-color="black" data-image="./assets/img/Blockchain_1.png">
+        <div class="logo">
+          <a href="http://www.vikenblockchain.com" class="simple-text logo-normal">
+            <h6>Viken Blockchain Solutions</h6> 
+          </a>
+        </div>
+        <div class="sidebar-wrapper">
+          <ul class="nav">
+            <li class="nav-item ">
+              <a class="nav-link" href="index.html">
+                <i class="material-icons">dashboard</i>
+                <p>Dashboard</p>
+              </a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="employees.html">
+                <i class="material-icons">person</i>
+                <p>Register Employee</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="medicalcenter.html">
+                <i class="material-icons">person</i>
+                <p>Medical Center</p>
+              </a>
+            </li>
+              <li class="nav-item active-pro ">
+                    <a class="nav-link" href="https://vikenblockchain.com/kontakt_oss.php">
+                        <i class="material-icons">unarchive</i>
+                        <p>Contact us</p>
+                    </a>
+                </li>
+            </ul>
+          </div>
+        </div>
+      <div class="main-panel">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+          <div class="container-fluid">
+            <div class="navbar-wrapper">
+              <a class="navbar-brand" href="javascript:void(0)">Employees</a>
+            </div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="navbar-toggler-icon icon-bar"></span>
+              <span class="navbar-toggler-icon icon-bar"></span>
+              <span class="navbar-toggler-icon icon-bar"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end">
+              <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                  <a class="nav-link" href="javscript:void(0)" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="material-icons">notifications</i>
+                    <span class="notification">5</span>
+                    <p class="d-lg-none d-md-block">
+                      Some Actions
+                    </p>
+                  <div class="ripple-container"></div></a>
+                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" id="employeeEvent" href="#employeeEvent"></a>
+                    
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>    
+            <div class="content">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-md-8">
+                    <div class="card">
+                      <div class="card-header card-header-primary">
+                        <h4 class="card-title">Enter Employee Information</h4>
+                        <p class="card-category">WARNING! All information will be stored on the Ropsten test network. 
+                          This application is only for testing purposes.</p>
+                      </div>
+                      <div class="card-body">
+                        <form>
+                          <div class="row">
+                            <div class="col-md-5">
+                              <div class="form-group">
+                                <label class="bmd-label-floating">Company</label>
+                                <input type="text" class="form-control" value="Viken Blockchain Solutions" id="inputCompany" disabled>
+                              </div>
+                            </div>
+                            <div class="col-md-3">
+                              <div class="form-group">
+                                <label class="bmd-label-floating">Start date</label>
+                                <input type="text" class="form-control" id="inputStartDate">
+                              </div>
+                            </div>
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                <label class="bmd-label-floating">Email address</label>
+                                <input type="email" class="form-control" id="inputEmail">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <label class="bmd-label-floating">Fist Name</label>
+                                <input type="text" class="form-control" id="inputFirst">
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <label class="bmd-label-floating">Last Name</label>
+                                <input type="text" class="form-control" id="inputLast">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <label class="bmd-label-floating">Location</label>
+                                <input type="text" class="form-control" id="inputLocation">
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <label class="bmd-label-floating">Role</label>
+                                <input type="text" class="form-control" id="inputRole">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                <label class="bmd-label-floating">Account</label>
+                                <input type="text" class="form-control" id="inputAccount" value="0x0668641c6DCEf643B0D6AE57C55C45Ec314baED4" readonly>
+                              </div>
+                            </div>
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                <label class="bmd-label-floating">Department</label>
+                                    <select name="department" id="inputDepartment" type="text" class="form-control">
+                                        <option value="" selected disabled>.. choose a department ..</option>
+                                        <option value="0xc1946615B1e00A3Bc4111fD23EF5983301A85440">Administration</option>
+                                        <option value="0x5101202459ef807aef0F221d2C859032032aF92a">Finance</option>
+                                        <option value="0x7714A445781A643D3C978ab01977f88C46B327ab">Customer Service</option>
+                                    </select>  
+                            </div>
+                        </div>
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                <label class="bmd-label-floating">Salary</label>
+                                <input type="number" class="form-control" id="inputSalary">
+                              </div>
+                            </div>
+                          </div>
+                          <br>
+                          <div class="row">
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <label>About Employee</label>
+                                <div class="form-group">
+                                  <label class="bmd-label-floating">Enter text:</label>
+                                  <textarea class="form-control" id="inputTextField" rows="5"></textarea>
+                                </div>
+                              </div>
+                            </div>
+                           
+                          </div>     
+                          <button type="reset" class="btn btn-primary pull-left" id="reset_data_button"><i class="glyphicon glyphicon-repeat"></i>reset</button>
+                          <button type="button" class="btn btn-primary pull-right" id="submitButton">add employee</button>
+                          <div class="clearfix"></div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-4">
+                    
+                      <div class="form-group">
+                        <label>WARNING</label>
+                        <div class="form-group">
+                          <label class="bmd-label-floating">ALL INFORMATION WILL BE STORED ON THE ETHEREUM ROPSTEN TESTNET</label>
+                          
+                          <iframe src="about:blank" frameborder="1" title="result" width="400" height="200" name="Result" id="iframe"></iframe>
+                        </div>
+                      </div>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+        <footer class="footer">
+          <div class="container-fluid">
+            <nav class="float-left">
+              <ul>
+                <li>
+                  <a href="http://www.vikenblockchain.com">
+                    Viken Blockchain Solutions
+                  </a>
+                </li>
+              </ul>
+            </nav>
+            <div class="copyright float-right">
+              &copy;
+              <script>
+                document.write(new Date().getFullYear())
+              </script>, made with <i class="material-icons">favorite</i> by
+              <a href="http://www.vikenblockchain.com" target="_blank">Viken Blockchain Solutions</a> for better web3 and blockchain solutions.
+            </div>
+          </div>
+        </footer>
+     
+
+    
+
+    <!--  Notifications Plugin, full documentation here: http://bootstrap-notify.remabledesigns.com/    -->
+    <!--  Charts Plugin, full documentation here: https://gionkunz.github.io/chartist-js/ -->
+    <!--  Plugin for Scrollbar documentation here: https://github.com/utatti/perfect-scrollbar -->
+    
+    <script src="./assets/js/core/jquery.min.js"></script>
+    <script src="./assets/js/core/popper.min.js"></script>
+    <script src="./assets/js/core/bootstrap-material-design.min.js"></script>
+    
+    <script src="https://unpkg.com/default-passive-events"></script>
+    <script src="./assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <!--  Notifications Plugin    -->
+    <script src="./assets/js/plugins/bootstrap-notify.js"></script>
+
+    <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+    <script src="./assets/js/material-dashboard.js"></script>
+    
+    <!-- Initialize Firebase -->
+    <script src="/__/firebase/init.js?useEmulator=true"></script>
+    <script src="http://unpkg.com/dotenv/config.js"></script>
+    <script src="./assets/js/scripts/employee.js"></script>
+   
+    
+</body>
+</html>
